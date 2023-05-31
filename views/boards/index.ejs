@@ -1,17 +1,25 @@
 <%- include('../partials/header') %>
 <%- include('../partials/subheader') %>
+<%- include('../partials/appWelcome') %>
 <main>
-    <section>
-        <h1 class="h1Light">Boards</h1>
-        <% boards.forEach(function(board) { %>
-            <div class="boardTile">
-                <p><span>Board: </span> <%= board.boardName %></p>
-                <p><span>Description: </span> <%= board.boardDesc %></p>
-                <div class="navButton" href="">
-                    <span>VIEW BOARD</span>
+    <section id="boardsSection">
+        <% if (boards.length > 0) { %>
+            <% boards.forEach(function(board) { %>
+                <div class="boardTile">
+                    <p><span>Board: <br></span> <%= board.boardName %></p>
+                    <p><span>Description: <br></span> <%= board.boardDesc %></p>
+                    <p><span>Owner: <br></span> <%= board.boardOwnerName %></p>
+                    <form id="alignRight" action="/boards/<%= board.id %>" method="GET">
+                        <button>VIEW BOARD</button>
+                    </form>
                 </div>
+           <% }) %>
+        <% } else { %>
+            <div id="pencilDiv">
+                <img id="pencilImg" src="/images/pencil.png" alt="pencil">
+                <h1 id= "ctrHeadline" class="h1Light">You'll need to create a board, or get added to your friend's board to get started!</h1>
             </div>
-       <% }) %>
+        <% } %>
     
     </section>
 </main>

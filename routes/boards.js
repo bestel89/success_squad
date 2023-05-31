@@ -9,7 +9,13 @@ router.get('/', ensureLoggedIn, boardsCtrl.index)
 // GET boards/new
 router.get('/new', ensureLoggedIn, boardsCtrl.new)
 
+// GET boards/show
+router.get('/:id', ensureLoggedIn, boardsCtrl.show)
+
 // POST boards
 router.post('/', ensureLoggedIn, boardsCtrl.create)
+
+// POST boards
+router.delete('/:id', ensureLoggedIn, boardsCtrl.delete)
 
 module.exports = router;

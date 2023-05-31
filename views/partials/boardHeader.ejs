@@ -1,0 +1,13 @@
+<div id="boardHeader2">
+    <h1 class="h1Light"><%= title %>  &#128221;</h1>
+    <form action="/boards/<%= board._id %>?_method=DELETE" method="POST">
+        <button type="submit">
+            <img href="/boards" id="binImg" src="/images/delete.png" alt="recycle bin">
+        </button>
+    </form>
+    <div class="rightCollection">
+        <span>Owner:</span>
+        <p><%= board.boardOwnerName %></p>
+    </div>
+</div>
+<hr>

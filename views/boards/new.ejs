@@ -1,9 +1,9 @@
 <%- include('../partials/header') %>
 <%- include('../partials/subheader') %>
+<%- include('../partials/title') %>
 <main>
-    <section>
+    <section id="sectionForm">
         <div id="formCont" class="flexctr">
-        <h1 class="h1Light">Create a new board</h1>
             <form id="newBoardForm" action="/boards" method="POST">
               <label>Board name:<br>
                 <input class='textinput' type="text" name="boardName">
@@ -11,7 +11,7 @@
               <label>Description:<br>
                 <textarea class='textinput' type="text" name="boardDesc"></textarea>
               </label><br><br>
-              <button class="flexctr" type="submit">Submit</button>
+              <button class="flexctr" type="submit">SUBMIT</button>
             </form>
         </div>
     </section>

@@ -4,26 +4,30 @@ module.exports = {
     index,
     new: newBoard,
     create,
+    show,
+    delete: deleteBoard,
 }
 
 async function index(req, res) {
+    let user = req.user.name
+    const splitName = user.split(' ');
+    const firstName = splitName[0]
     const boards = await Board.find({})
     res.render('boards/index', { 
         title: 'Boards', 
-        boards, 
+        boards,
+        firstName,
     })
 }
 
-// async function show(req, res) {
-//   // Populate the cast array with performer docs instead of ObjectIds
-//   const movie = await Movie.findById(req.params.id).populate('cast');
-//   // Mongoose query builder approach to retrieve performers not the movie:
-//     // Performer.find({}).where('_id').nin(movie.cast)
-//   // The native MongoDB approach uses a query object to find 
-//   // performer docs whose _ids are not in the movie.cast array like this:
-//   const performers = await Performer.find({ _id: { $nin: movie.cast } }).sort('name');
-//   res.render('movies/show', { title: 'Movie Detail', movie, performers });
-// }
+async function show(req, res) {
+  const board = await Board.findById(req.params.id)
+  console.log(board)
+  res.render('boards/show', { 
+    title: board.boardName, 
+    board, 
+ });
+}
 
 function newBoard(req, res) {
   res.render('boards/new', { 
@@ -37,7 +41,8 @@ async function create(req, res) {
     if (req.body[key] === '') delete req.body[key];
   }
   try {
-    console.log(req.body)
+    req.body.boardOwnerID = req.user._id
+    req.body.boardOwnerName = req.user.name
     const board = await Board.create(req.body);
     res.redirect(`/boards`);
   } catch (err) {
@@ -45,4 +50,17 @@ async function create(req, res) {
     console.log(err);
     res.render('boards/new', { errorMsg: err.message });
   }
+}
+
+async function deleteBoard(req, res) {
+    // console.log(req.params.id)
+    // const board = await Board.findById(req.params.id);
+    // console.log(board)
+    // // Rogue user!
+    // if (!board) return res.redirect('/boards');
+    // board.remove();
+    // // Save
+    // await board.save();
+    // Redirect back to the movie's show view
+    // res.redirect(`/boards`);
 }

@@ -13,9 +13,12 @@ const boardSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Viewer'
   }],
-  boardOwner: {
+  boardOwnerID: {
     type: Schema.Types.ObjectId,
     ref: 'Owner',
+  },
+  boardOwnerName: {
+    type: String,
   },
   boardEditors: [{
     type: Schema.Types.ObjectId,

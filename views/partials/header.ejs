@@ -16,19 +16,29 @@
         <div class="headerItem">
             <img src="/images/logo.png" class="logo">
         </div>
-        <div class="headerItem">
-            <h1>Success Squad</h1>
+        <form action="/boards"
+            <% if (user) { %>
+                <form action="/boards">
+                    <a href="/boards" id="h1Logo">Success Squad</a>
+                </form>
+            <% } else { %>
+                <form action="/">
+                    <a href="/" id="h1Logo">Success Squad</a>
+                </form>
+            <% } %>
         </div>
     </div>
     <div class="groupedHeader">
         <div class="headerItem">
-            <div class="navButton">
                 <% if (user) { %>
-                    <a href="/logout">LOG OUT</a>
+                    <form action="/logout">
+                        <button>LOG OUT</button>
+                    </form>
                 <% } else { %>
-                    <a href="/auth/google" class="login">LOG IN&nbsp;</a>
+                    <form action="/auth/google">
+                        <button>LOG IN</button>
+                    </form>
                 <% } %>
-            </div>
         </div>
     </div>
   </nav>

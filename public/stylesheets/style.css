@@ -21,18 +21,35 @@ h1 {
   color: black;
 }
 
+.h1Light {
+  font-family: 'Instrument Sans', sans-serif;
+  margin-bottom: 0;
+  color: white;
+}
+
+
+h4 {
+  color: white;
+}
+
+p {
+  margin: 0;
+}
+
 span {
   font-size: 1vmin;
 }
 
-.h1Light {
-  font-family: 'Instrument Sans', sans-serif;
-  color: white;
-}
 
 .logo {
   max-width: 30px;
   max-height: 30px;
+}
+
+#h1Logo{
+  color: black;
+  font-size: 2.5vmin;
+  font-family: 'Bangers', cursive;
 }
 
 .bodyh1 {
@@ -58,7 +75,7 @@ main {
 
 section {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   max-width: 80%;
@@ -113,12 +130,13 @@ button {
   align-items: center;
   background-color: rgb(255, 21, 212);
   border-radius: 1vmin;
-  padding: 1vmin;
+  padding: 0.8vmin;
   margin: 1vmin;
   max-width: 10vmin;
+  font-size: 1vmin;
 }
 
-.navButton:hover {
+button:hover {
   background-color: rgb(241, 114, 218);
 }
 
@@ -137,24 +155,79 @@ input, select, textarea{
   color: black;
 }
 
+#sectionForm {
+  width: 90%;
+  display: flex;
+  justify-content: flex-start;
+}
+
 #formCont {
-  
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 5vmin;
 }
 
 #newBoardForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
 
+#alignRight {
+  align-self: flex-end;
+  margin-top: 1vmin;
 }
 
 .textinput {
-  max-width: 60vmin;
-  min-width: 30vmin;
+  width: 60vmin;
 }
 
 .boardTile {
-  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(39, 39, 39);
   border-radius: 1vmin;
   padding: 1.5vmin;
   margin: 1vmin;
-  max-width: 30vmin;
-  min-width: 30vmin;
+  width: 28vmin;
+}
+
+#boardsSection {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 90%;
+}
+
+#pageTitleIndent {
+  margin-left: 10%;
+}
+
+#boardHeader2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 90%;
+}
+
+#ctrHeadline {
+  max-width: 50vmin;
+}
+
+#pencilDiv {
+  margin-top: 20vmin;
+  margin-left: 5vmin;
+}
+
+#pencilImg {
+  max-width: 10vmin;
+  margin: 1vmin;
+}
+
+#binImg {
+  max-width: 3vmin;
+  margin: 1vmin;
 }
