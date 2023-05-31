@@ -1,17 +1,160 @@
 * {
   box-sizing: border-box;
+  font-family: 'Instrument Sans', sans-serif;
+  color: white;
 }
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  min-height: 100%;
+  background-color: black;
+  margin: 0 auto;
 }
 
-a {
-  color: #00B7FF;
+.flexCtr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+h1 {
+  font-family: 'Bangers', cursive;
+  color: black;
+}
+
+span {
+  font-size: 1vmin;
+}
+
+.h1Light {
+  font-family: 'Instrument Sans', sans-serif;
+  color: white;
+}
+
+.logo {
+  max-width: 30px;
+  max-height: 30px;
+}
+
+.bodyh1 {
+  color: white;
+  font-family: 'Instrument Sans', sans-serif;;
+}
+
 
 nav {
   display: flex;
   justify-content: space-between;
-  border: 1px solid red;
+  align-items: center;
+  background-color: lavender;
+}
+
+main {
+  min-height: calc(100vh - 50px);
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  padding-bottom: 50px;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 80%;
+}
+
+.groupedHeader {
+  display: flex;
+  align-items: center;
+}
+
+.headerItem {
+  margin-left: 1vmin;
+  margin-right: 1vmin;
+}
+
+#markPanelFloat {
+  max-width: 50vmin;
+}
+
+#homeImg {
+  max-width: 50vmin;
+}
+
+.bodyh1 {
+  margin-top: 10vmin;
+}
+
+#footerCont {
+  display: flex;
+  min-width: 100%;
+}
+
+#footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.pDark {
+  color: black
+}
+
+#subheader {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #282828;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  background-color: rgb(255, 21, 212);
+  border-radius: 1vmin;
+  padding: 1vmin;
+  margin: 1vmin;
+  max-width: 10vmin;
+}
+
+.navButton:hover {
+  background-color: rgb(241, 114, 218);
+}
+
+.rightCollection {
+  display: flex;
+  justify-content: right;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 1vmin;
+}
+
+input, select, textarea{
+  color: black;
+}
+
+#formCont {
+  
+}
+
+#newBoardForm {
+
+}
+
+.textinput {
+  max-width: 60vmin;
+  min-width: 30vmin;
+}
+
+.boardTile {
+  background-color: grey;
+  border-radius: 1vmin;
+  padding: 1.5vmin;
+  margin: 1vmin;
+  max-width: 30vmin;
+  min-width: 30vmin;
 }

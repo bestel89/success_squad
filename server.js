@@ -6,13 +6,15 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const passport = require('passport')
-
-const index = require('./routes/index')
-const users = require('./routes/users')
+const methodOverride = require('method-override')
 
 require('dotenv').config()
 require('./config/database')
 require('./config/passport')
+
+const index = require('./routes/index')
+const users = require('./routes/users')
+const boards = require('./routes/boards')
 
 const app = express()
 
@@ -27,13 +29,16 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(methodOverride('_method'))
 
+//Mounting the session middleware
 app.use(session({
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true
 }))
 
+//Mount passport
 app.use(passport.initialize())
 app.use(passport.session())
 
@@ -43,8 +48,10 @@ app.use(function (req, res, next) {
   next();
 });
 
+//Mount routers
 app.use('/', index)
 app.use('/users', users)
+app.use('/boards', boards)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

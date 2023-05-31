@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+<%- include('../partials/subheader') %>
+<main>
+    <section>
+        <div id="formCont" class="flexctr">
+        <h1 class="h1Light">Create a new board</h1>
+            <form id="newBoardForm" action="/boards" method="POST">
+              <label>Board name:<br>
+                <input class='textinput' type="text" name="boardName">
+              </label><br>
+              <label>Description:<br>
+                <textarea class='textinput' type="text" name="boardDesc"></textarea>
+              </label><br><br>
+              <button class="flexctr" type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<%- include('../partials/footer') %>

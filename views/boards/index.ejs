@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+<%- include('../partials/subheader') %>
+<main>
+    <section>
+        <h1 class="h1Light">Boards</h1>
+        <% boards.forEach(function(board) { %>
+            <div class="boardTile">
+                <p><span>Board: </span> <%= board.boardName %></p>
+                <p><span>Description: </span> <%= board.boardDesc %></p>
+                <div class="navButton" href="">
+                    <span>VIEW BOARD</span>
+                </div>
+            </div>
+       <% }) %>
+    
+    </section>
+</main>
+
+<%- include('../partials/footer') %>
