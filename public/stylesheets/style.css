@@ -295,6 +295,20 @@ input, select, textarea{
   font-size: 3vmin;
 }
 
+#editOKRForm {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#editOKRBtn {
+  background-color: transparent;
+  height: 4vmin;
+  width: 4vmin;
+  padding: 0;
+  margin: 1vmin;
+  font-size: 3vmin;
+}
+
 #okrsSection {
   flex-direction: row;
   flex-wrap: wrap;
@@ -313,7 +327,7 @@ input, select, textarea{
   width: 28vmin;
 }
 
-#objTitleInput {
+.objTitleInput {
   margin-top: 2vmin;
   width: 100%;
 }
@@ -347,6 +361,26 @@ input, select, textarea{
 }
 
 .btn-close{
+  font-size: 2vmin;
+  border-radius: 0;
+  background-color: transparent;
+  color: black;
+  padding: 0.5vmin;
+  margin: 0;
+  align-self: flex-end;
+}
+
+#closeCreateBtn {
+  font-size: 2vmin;
+  border-radius: 0;
+  background-color: transparent;
+  color: black;
+  padding: 0.5vmin;
+  margin: 0;
+  align-self: flex-end;
+}
+
+#closeEditBtn {
   font-size: 2vmin;
   border-radius: 0;
   background-color: transparent;
