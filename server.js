@@ -15,6 +15,7 @@ require('./config/passport')
 const index = require('./routes/index')
 const users = require('./routes/users')
 const boards = require('./routes/boards')
+const objectives = require('./routes/objectives')
 
 const app = express()
 
@@ -52,6 +53,7 @@ app.use(function (req, res, next) {
 app.use('/', index)
 app.use('/users', users)
 app.use('/boards', boards)
+app.use('/boards/:id', objectives)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

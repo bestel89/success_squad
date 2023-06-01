@@ -2,8 +2,43 @@
 <%- include('../partials/subheader') %>
 <%- include('../partials/boardHeader') %>
 <main>
-    <section>
-    
+    <section class="modal hidden">
+        <button class="btn-close">⨉</button>
+        <div>
+            <h3 class="h3Dark">Create Objective</h3>
+        </div>
+        <p class="pDark">Create your objective, you can add key results later.</p><br>
+        <form action="<%= board.id %>/objectives" method="POST">
+        <label class="pDark">Objective title:
+            <textarea id="objTitleInput" type="text" name="objTitle"></textarea>
+        </label>
+        <label class="pDark">Objective description:
+            <textarea id="objTitleInput" type="text" name="objDesc"></textarea>
+        </label>
+        <label class="pDark">Objective due date: <br>
+            <input type="date" name="objOrigDue"></textarea>
+        </label>
+        <input type="hidden" name="objBoardID" value="<%= board._id %>" />
+        <button class="btn submit">SUBMIT</button>
+      </form>
+    </section>
+    <div class="overlay hidden"></div>
+
+    <section id="okrsSection">
+        <% if (objectives.length > 0) { %>
+            <% objectives.forEach(function(objective) { %>
+                <div class="objTile">
+                    <h3 class="h3Light"><%= objective.objTitle %></h3>
+                    <p><%= objective.objDesc %></p>
+                    <p><span>Original due date: <br></span> <%= objective.objOrigDue.toLocaleDateString('en-uk') %></p>
+                </div>
+           <% }) %>
+        <% } else { %>
+            <div id="pencilDiv">
+                <img id="pencilImg" src="/images/pencil.png" alt="pencil">
+                <h1 id= "ctrHeadline" class="h1Light">You'll need to create a board, or get added to your friend's board to get started!</h1>
+            </div>
+        <% } %>
     </section>
 </main>
 

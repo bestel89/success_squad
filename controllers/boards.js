@@ -1,4 +1,5 @@
 const Board = require('../models/board')
+const Objective = require('../models/objective')
 
 module.exports = {
     index,
@@ -6,6 +7,37 @@ module.exports = {
     create,
     show,
     delete: deleteBoard,
+    edit,
+    update,
+}
+
+async function update(req, res, next) {
+    const { id } = req.params
+    for (let key in req.body) {
+        if (req.body[key] === '') delete req.body[key];
+    }
+    try {
+        const board = await Board.findById(id)
+        board.boardName = req.body.boardName
+        board.boardDesc = req.body.boardDesc
+        await board.save()
+    } catch (err) {
+        console.log(err)
+    }
+    res.redirect(`/boards/${id}`)
+}
+
+async function edit(req, res) {
+    try {
+        const {id} = req.params
+        const board = await Board.findById(id)
+    res.render(`boards/edit`, {
+        title: 'Edit board details',
+        board,
+    })
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 async function index(req, res) {
@@ -22,10 +54,11 @@ async function index(req, res) {
 
 async function show(req, res) {
   const board = await Board.findById(req.params.id)
-  console.log(board)
+  const objectives = await Objective.find({objBoardID: req.params.id})
   res.render('boards/show', { 
     title: board.boardName, 
-    board, 
+    board,
+    objectives,
  });
 }
 
@@ -53,14 +86,6 @@ async function create(req, res) {
 }
 
 async function deleteBoard(req, res) {
-    // console.log(req.params.id)
-    // const board = await Board.findById(req.params.id);
-    // console.log(board)
-    // // Rogue user!
-    // if (!board) return res.redirect('/boards');
-    // board.remove();
-    // // Save
-    // await board.save();
-    // Redirect back to the movie's show view
-    // res.redirect(`/boards`);
+    await Board.findOneAndRemove(req.params.id)
+    await res.redirect('/boards')
 }

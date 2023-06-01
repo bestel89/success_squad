@@ -1,41 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const objSchema = new Schema({
-  objTitle: {
-    type: String,
-    required: true,
-  },
-  objDesc: {
-    type: String,
-  },
-  objOrigDue: {
-    type: Date,
-  },
-  objCalcDue: {
-    type: Date,
-  },
-  objCalcStatus: {
-    type: String,
-  },
-  objCalcProgress: {
-    type: String,
-  },
-  objAuthor: {
-    type: Schema.Types.ObjectId,
-    ref: 'ObjAuthor'
-  },
-  objKeyResults: {
-    type: [krSchema]
-  },
-  objComments: {
-    type: Schema.Types.ObjectId,
-    ref: 'ObjComment'
-  }
-}, {
-  timestamps: true
-});
-
 const krSchema = new Schema({
     krTitle: {
         type: String,
@@ -56,7 +21,49 @@ const krSchema = new Schema({
     },
   }, {
     timestamps: true
-  });
+});
+
+const objSchema = new Schema({
+  objTitle: {
+    type: String,
+    required: true,
+  },
+  objBoardID: {
+    type: Schema.Types.ObjectId,
+  },
+  objDesc: {
+    type: String,
+  },
+  objOrigDue: {
+    type: Date,
+  },
+  objCalcDue: {
+    type: Date,
+  },
+  objCalcStatus: {
+    type: String,
+  },
+  objCalcProgress: {
+    type: String,
+  },
+  objAuthorID: {
+    type: Schema.Types.ObjectId,
+    ref: 'ObjAuthor',
+  },
+  objAuthorName: {
+    type: String,
+  },
+  objKeyResults: {
+    type: [krSchema]
+  },
+  objComments: {
+    type: Schema.Types.ObjectId,
+    ref: 'ObjComment',
+  },
+}, {
+  timestamps: true
+});
+
 
 
 module.exports = mongoose.model('Objective', objSchema);

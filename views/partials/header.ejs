@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script defer src="/javascripts/modal.js"></script>
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,34 +12,34 @@
   <title><%= title %></title>
 </head>
 <body>
-  <nav>
-    <div class="groupedHeader">
-        <div class="headerItem">
-            <img src="/images/logo.png" class="logo">
-        </div>
-        <form action="/boards"
-            <% if (user) { %>
-                <form action="/boards">
-                    <a href="/boards" id="h1Logo">Success Squad</a>
-                </form>
-            <% } else { %>
-                <form action="/">
-                    <a href="/" id="h1Logo">Success Squad</a>
-                </form>
-            <% } %>
-        </div>
-    </div>
-    <div class="groupedHeader">
-        <div class="headerItem">
+    <nav>
+        <div class="groupedHeader">
+            <div class="headerItem">
+                <img src="/images/logo.png" class="logo">
+            </div>
+            <form action="/boards"
                 <% if (user) { %>
-                    <form action="/logout">
-                        <button>LOG OUT</button>
+                    <form action="/boards">
+                        <a href="/boards" id="h1Logo">Success Squad</a>
                     </form>
                 <% } else { %>
-                    <form action="/auth/google">
-                        <button>LOG IN</button>
+                    <form action="/">
+                        <a href="/" id="h1Logo">Success Squad</a>
                     </form>
                 <% } %>
+            </div>
         </div>
-    </div>
-  </nav>
+        <div class="groupedHeader">
+            <div class="headerItem">
+                    <% if (user) { %>
+                        <form action="/logout">
+                            <button>LOG OUT</button>
+                        </form>
+                    <% } else { %>
+                        <form action="/auth/google">
+                            <button>LOG IN</button>
+                        </form>
+                    <% } %>
+            </div>
+        </div>
+    </nav>

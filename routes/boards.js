@@ -12,8 +12,14 @@ router.get('/new', ensureLoggedIn, boardsCtrl.new)
 // GET boards/show
 router.get('/:id', ensureLoggedIn, boardsCtrl.show)
 
+// GET boards/:id/edit
+router.get('/:id/edit', ensureLoggedIn, boardsCtrl.edit)
+
 // POST boards
 router.post('/', ensureLoggedIn, boardsCtrl.create)
+
+// POST boards
+router.post('/:id', ensureLoggedIn, boardsCtrl.update)
 
 // POST boards
 router.delete('/:id', ensureLoggedIn, boardsCtrl.delete)
