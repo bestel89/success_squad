@@ -53,7 +53,7 @@ app.use(function (req, res, next) {
 app.use('/', index)
 app.use('/users', users)
 app.use('/boards', boards)
-app.use('/boards/:id', objectives)
+app.use('/', objectives)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

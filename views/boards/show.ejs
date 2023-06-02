@@ -25,11 +25,27 @@
 
     <section class="editObjModal modal hidden">
         <button id="closeEditBtn">⨉</button>
-        <div>
-            <h3 class="h3Dark">Edit Objective</h3>
-        </div>
         <form id="editObjForm" method="POST">
-
+            <div>
+                <h3 class="h3Dark">Edit Objective</h3>
+            </div>
+            <div>
+                <label class="pDark">New title:
+                    <textarea class="objTitleInput" type="text" name="objTitle"></textarea>
+                </label>
+            </div>
+            <div>
+                <label class="pDark">New description:
+                    <textarea class="objTitleInput" type="text" name="objDesc"></textarea>
+                </label>
+            </div>
+            <div>
+                <label class="pDark">New due date: <br>
+                    <input type="date" name="objCalcDue"></textarea>
+                </label>
+            </div>
+            <input type="hidden" name="objBoardID" value="<%= board._id %>" />
+            <button class="btn submit">UPDATE OBJECTIVE</button>
         </form>
     </section>
 
@@ -39,12 +55,31 @@
         <% if (objectives.length > 0) { %>
             <% objectives.forEach(function(objective) { %>
                 <div class="objTile">
-                    <h3 class="h3Light"><%= objective.objTitle %></h3>
-                    <p><%= objective.objDesc %></p>
-                    <p><span>Original due date: <br></span> <%= objective.objOrigDue.toLocaleDateString('en-uk') %></p>
-                        <button id="editOKRBtn" objId="<%= objective._id %>">
-                            &#128221;
-                        </button>
+                    <div class="objSubTile">
+                        <div class="objTileTitle">
+                            <h3 class="h3Light"><%= objective.objTitle %></h3>
+                            <button id="editOKRBtn" objId="<%= objective._id %>">
+                                &#128221;
+                            </button>
+                        </div>
+                            <p><span>Description: <br></span> <%= objective.objDesc %></p>
+                            <p><span>Original due date: <br></span> <%= objective.objOrigDue.toLocaleDateString('en-uk') %></p>
+                            <% if (objective.objCalcDue) { %>
+                                <p><span>Updated due date: <br></span> <%= objective.objCalcDue.toLocaleDateString('en-uk') %></p>
+                            <% } else {} %>
+                    </div>
+                    <% const krArr = objective.objKeyResults %>
+                    <div class="objTileTitle">
+                        <p>Key results </p>
+                        <form action="/objectives/<%= objective._id %>/krs/edit" method="GET">
+                            <button>EDIT</button>
+                        </form>
+                    </div>
+                    <% krArr.forEach(function(kr) { %>
+                        <div class="krOnObj">
+                            <p><%= kr.krTitle %></p>
+                        </div>
+                    <% }) %>
                 </div>
            <% }) %>
         <% } else { %>

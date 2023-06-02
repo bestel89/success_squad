@@ -380,6 +380,16 @@ input, select, textarea{
   align-self: flex-end;
 }
 
+#closeCreateKRBtn {
+  font-size: 2vmin;
+  border-radius: 0;
+  background-color: transparent;
+  color: black;
+  padding: 0.5vmin;
+  margin: 0;
+  align-self: flex-end;
+}
+
 #closeEditBtn {
   font-size: 2vmin;
   border-radius: 0;
@@ -403,7 +413,38 @@ input, select, textarea{
   z-index: 1;
 }
 
+.krOverlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(1vmin);
+  z-index: 1;
+}
+
 .submit {
   align-self: flex-end;
 }
 
+.objTileTitle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1vmin;
+}
+
+.objSubTile {
+  background-color: rgb(62, 62, 62);
+  border-radius: 1vmin;
+  padding: 1vmin 1vmin;
+}
+
+.krOnObj {
+  background-color: rgb(62, 62, 62);
+  border-radius: 1vmin;
+  padding: 1vmin 1vmin;
+  margin: 1vmin 0 1vmin 0;
+}

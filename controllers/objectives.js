@@ -3,15 +3,27 @@ const Objective = require('../models/objective')
 
 module.exports = {
     create,
+    update,
 }
 
-// async function index(req, res) {
-//     const objectives = await Objective.find(req.params.id)
-//     const id = req.params.id
-//     res.render(`boards/${id}`, { 
-//         objectives,
-//     })
-// }
+
+async function update(req, res, next) {
+    const { id } = req.params
+    const boardID = req.body.objBoardID
+    for (let key in req.body) {
+        if (req.body[key] === '') delete req.body[key];
+    }
+    try {
+        const objective = await Objective.findById(id)
+        objective.objTitle = req.body.objTitle
+        objective.objDesc = req.body.objDesc
+        objective.objCalcDue = req.body.objCalcDue
+        await objective.save()
+    } catch (err) {
+        console.log(err)
+    }
+    res.redirect(`/boards/${boardID}`)
+}
   
 async function create(req, res) {
     // Remove empty properties so that defaults will be applied

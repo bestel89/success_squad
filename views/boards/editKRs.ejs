@@ -1,0 +1,52 @@
+<%- include('../partials/header') %>
+<%- include('../partials/subheader') %>
+<%- include('../partials/title') %>
+<main>
+    <section class="createKRModal modal hidden">
+        <button id="closeCreateKRBtn">⨉</button>
+        <div>
+            <h3 class="h3Dark">Create key results</h3>
+        </div>
+        <p class="pDark">Add a key result to your objective. Try to make it measurable.</p><br>
+        <form action="/objectives/<%= objective.id %>/krs" method="POST">
+        <label class="pDark">Key result:
+            <textarea class="objTitleInput" type="text" name="krTitle"></textarea>
+        </label>
+        <label class="pDark">KR due date: <br>
+            <input type="date" name="krDueDate"></textarea>
+        </label>
+        <button class="btn submit">SUBMIT</button>
+      </form>
+    </section>
+
+    <div class="krOverlay hidden"></div>
+
+    <section>
+        <% if (krs.length > 0) { %>
+            <% krs.forEach(function(kr) { %>
+                <div class="boardTile">
+                    <p><span>Key result: <br></span> <%= kr.krTitle %></p>
+                </div>
+           <% }) %>
+           <div class="boardTile">
+                <p><span>Add Key Result <br></span></p>
+                <button id="addKRBtn" objId="<%= objective._id %>">
+                    &#x2795;
+                </button>
+            </div>
+        <% } else { %>
+            <div id="pencilDiv">
+                <img id="pencilImg" src="/images/pencil.png" alt="pencil">
+                <h1 id= "ctrHeadline" class="h1Light">Add your first KR!</h1>
+            </div>
+            <div class="boardTile">
+                <p><span>Add Key Result <br></span></p>
+                <button id="addKRBtn" objId="<%= objective._id %>">
+                    &#x2795;
+                </button>
+            </div>
+        <% } %>
+    </section>
+</main>
+
+<%- include('../partials/footer') %>
