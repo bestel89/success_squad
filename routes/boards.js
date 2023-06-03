@@ -24,4 +24,4 @@ router.post('/:id', ensureLoggedIn, boardsCtrl.update)
 // POST boards
 router.delete('/:id', ensureLoggedIn, boardsCtrl.delete)
 
-module.exports = router;
+module.exports = router

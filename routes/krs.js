@@ -1,9 +1,9 @@
-// const express = require('express');
-// const router = express.Router();
-// const krsCtrl = require('../controllers/krs')
-// const ensureLoggedIn = require('../config/ensureLoggedIn')
+const express = require('express');
+const router = express.Router();
+const krsCtrl = require('../controllers/krs')
+const ensureLoggedIn = require('../config/ensureLoggedIn')
 
-// ALL ROUTES STARTS WITH /boards/:id
+// ALL ROUTES STARTS WITH /krs
 
 // // GET All objectives for a board
 // router.get('/objectives', ensureLoggedIn, objectivesCtrl.index)
@@ -17,10 +17,10 @@
 // POST boards
 // router.post('/boards/:id/objectives', ensureLoggedIn, objectivesCtrl.create)
 
-// // POST boards
-// router.post('/objectives/:id', ensureLoggedIn, objectivesCtrl.update)
+// POST update KRs
+router.post('/:id', ensureLoggedIn, krsCtrl.update)
 
-// // POST boards
-// router.delete('/:id', ensureLoggedIn, boardsCtrl.delete)
+// POST DELETE KR
+router.delete('/:id', ensureLoggedIn, krsCtrl.delete)
 
-// module.exports = router;
+module.exports = router

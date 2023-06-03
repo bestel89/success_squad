@@ -8,7 +8,6 @@ const closeEditEl = document.getElementById("closeEditBtn")
 //Bespoke buttons
 const createOKRBtn = document.getElementById('createOKRBtn')
 const editOKRBtns = document.querySelectorAll('button[id^=editOKRBtn]')
-console.log(editOKRBtns)
 
 //Forms
 const editObjFormEl = document.getElementById('editObjForm')
@@ -52,7 +51,7 @@ editOKRBtns.forEach(function(btn) {
          console.log(event.target)
          openObjEditModal(event.target)
     })
- })
+})
 
 createOKRBtn.addEventListener("click", openObjCreateModal);
 // editOKRBtn.addEventListener("click", openObjEditModal);

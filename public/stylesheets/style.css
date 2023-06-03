@@ -157,6 +157,10 @@ button:hover {
   background-color: rgb(241, 114, 218);
 }
 
+.greyBtn {
+  background-color: gray;
+}
+
 .rightCollection {
   display: flex;
   justify-content: right;
@@ -222,6 +226,43 @@ input, select, textarea{
   padding: 1.5vmin;
   margin: 1vmin;
   width: 28vmin;
+}
+
+.krTile {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(39, 39, 39);
+  border-radius: 1vmin;
+  padding: 1.5vmin;
+  margin: 1vmin;
+  width: 100%;
+}
+
+.krDeleteTile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: rgb(39, 39, 39);
+  border-radius: 1vmin;
+  padding: 1.5vmin;
+  margin: 1vmin;
+  width: 10%;
+}
+
+.noVertMargins {
+  margin: 0 auto;
+}
+
+.krSection {
+  width: 100%;
+}
+
+.krRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 #boardsSection {
@@ -391,6 +432,16 @@ input, select, textarea{
 }
 
 #closeEditBtn {
+  font-size: 2vmin;
+  border-radius: 0;
+  background-color: transparent;
+  color: black;
+  padding: 0.5vmin;
+  margin: 0;
+  align-self: flex-end;
+}
+
+#closeEditKRBtn {
   font-size: 2vmin;
   border-radius: 0;
   background-color: transparent;

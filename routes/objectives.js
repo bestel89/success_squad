@@ -30,4 +30,4 @@ router.post('/objectives/:id', ensureLoggedIn, objectivesCtrl.update)
 // // POST boards
 // router.delete('/:id', ensureLoggedIn, boardsCtrl.delete)
 
-module.exports = router;
+module.exports = router

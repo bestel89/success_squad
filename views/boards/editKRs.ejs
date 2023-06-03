@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<%- include('../partials/subheader') %>
+<%- include('../partials/subHEditKR') %>
 <%- include('../partials/title') %>
 <main>
     <section class="createKRModal modal hidden">
@@ -19,21 +19,48 @@
       </form>
     </section>
 
+    <section class="editKRModal modal hidden">
+        <button id="closeEditKRBtn">⨉</button>
+        <div>
+            <h3 class="h3Dark">Edit key result</h3>
+        </div>
+        <p class="pDark">Edit your key result. Change any fields you need to change.</p><br>
+        <form id="editKRForm" method="POST">
+        <label class="pDark">Key result:
+            <textarea class="objTitleInput" type="text" name="krTitle"></textarea>
+        </label>
+        <label class="pDark">KR due date: <br>
+            <input type="date" name="krDueDate"></textarea>
+        </label>
+        <input type="hidden" name="objID" value="<%= objective._id %>" />
+        <button class="btn submit">SUBMIT</button>
+      </form>
+    </section>
+
     <div class="krOverlay hidden"></div>
 
-    <section>
+    <section class="krSection">
         <% if (krs.length > 0) { %>
             <% krs.forEach(function(kr) { %>
-                <div class="boardTile">
-                    <p><span>Key result: <br></span> <%= kr.krTitle %></p>
+                <div class="krRow">
+                    <div class="krTile">
+                        <p><span>Key result: <br></span> <%= kr.krTitle %></p>
+                    </div>
+                    <div class="krDeleteTile">
+                        <button id="editKRBtn" objId="<%= objective._id %>" krId="<%= kr._id %>">EDIT</button>
+                    </div>
+                    <div class="krDeleteTile">
+                        <form action="/krs/<%= kr._id %>?_method=DELETE" method="POST">
+                            <input type="hidden" name="objID" value="<%= objective._id %>" />
+                            <input type="hidden" name="krID" value="<%= kr._id %>" />
+                            <button>DELETE</button>
+                        </form>
+                    </div>
                 </div>
            <% }) %>
-           <div class="boardTile">
-                <p><span>Add Key Result <br></span></p>
-                <button id="addKRBtn" objId="<%= objective._id %>">
-                    &#x2795;
-                </button>
-            </div>
+            <button id="addKRBtn" objId="<%= objective._id %>">
+                ADD KEY RESULT &#x2795;
+            </button>
         <% } else { %>
             <div id="pencilDiv">
                 <img id="pencilImg" src="/images/pencil.png" alt="pencil">
