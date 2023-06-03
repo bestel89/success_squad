@@ -1,12 +1,19 @@
 * {
   box-sizing: border-box;
   font-family: 'Instrument Sans', sans-serif;
-  color: white;
+  --main-bg: #283147;
+  --darkpink: #e24a77;
+  --lightpink: #e87d98;
+  --salmon: #f6887b;
+  --darktur: #00a2aa;
+  --lightur: #00ccd4;
+  --white: #f8f8f8;
+  --lightgrey: #dadada;
 }
 
 body {
   min-height: 100%;
-  background-color: black;
+  background-color: var(--main-bg);
   margin: 0 auto;
 }
 
@@ -17,57 +24,71 @@ body {
 }
 
 h1 {
-  font-family: 'Bangers', cursive;
-  color: black;
-}
-
-.h1Light {
   font-family: 'Instrument Sans', sans-serif;
   margin: 1vmin 0;
-  color: white;
+  color: var(--white);
+  font-size: 3.5vmin;
 }
 
-.h3Dark {
-  color: black;
-  margin: 0 auto;
-}
-
-.h3Light {
-  color: white;
+h3 {
   margin: 0;
+  color: var(--main-bg);
+  font-size: 2vmin;
+}
+
+.h3l {
+  color: var(--white);
+  font-size: 2vmin;
+  margin: 2vmin 0;
 }
 
 
 h4 {
-  color: white;
+  color: var(--white);
 }
 
 p {
   margin: 0;
+  font-size: 1.8vmin;
+}
+
+.pl {
+  color: var(--white);
+  margin: 0;
+  font-size: 1.8vmin;
 }
 
 .pDark {
-  color: black;
+  color: var(--darktur);
 }
 
 span {
-  font-size: 1vmin;
+  font-size: 1.3vmin;
+  font-weight: 800;
+}
+
+.spanl {
+  font-size: 1.3vmin;
+  font-weight: 800;
+  color: var(--white);
 }
 
 
 .logo {
-  max-width: 30px;
-  max-height: 30px;
+  max-width: 5vmin;
+  max-height: 5vmin;
+  margin: 2vmin 1vmin;
 }
 
 #h1Logo{
-  color: black;
-  font-size: 2.5vmin;
-  font-family: 'Bangers', cursive;
+  color: var(--white);
+  text-shadow: 1px 1px 4px #000000;
+  font-size: 3vmin;
+  font-family: 'Secular One', sans-serif;
 }
 
 .bodyh1 {
-  color: white;
+  color: var(--white);
   font-family: 'Instrument Sans', sans-serif;;
 }
 
@@ -76,13 +97,14 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: lavender;
+  background-color: var(--main-bg);
 }
 
 main {
   min-height: calc(100vh - 50px);
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   max-width: 100%;
   padding-bottom: 50px;
 }
@@ -120,29 +142,30 @@ section {
 #footerCont {
   display: flex;
   min-width: 100%;
+  background-color: var(--darkpink);
 }
 
 #footer {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-left: 20%;
+  gap: 3vmin;
   width: 100%;
-}
-
-.pDark {
-  color: black
+  background-color: var(--darkpink);
 }
 
 #subheader {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background-color: #282828;
+  background-color: var(--lightpink);
 }
 
 button {
   display: flex;
   align-items: center;
-  background-color: rgb(255, 21, 212);
+  background-color: var(--darkpink);
+  color: var(--white);
   border-radius: 1vmin;
   padding: 0.8vmin;
   margin: 1vmin;
@@ -151,14 +174,20 @@ button {
   cursor: pointer;
   border: none;
   font-weight: 600;
+  box-shadow: 1px 1px 4px #000000;
 }
 
 button:hover {
-  background-color: rgb(241, 114, 218);
+  background-color: var(--lightpink);
+}
+
+.btnemoji {
+  box-shadow: none;
 }
 
 .greyBtn {
-  background-color: gray;
+  background-color: var(--white);
+  color: var(--main-bg)
 }
 
 .rightCollection {
@@ -177,13 +206,13 @@ button:hover {
 }
 
 a {
-  color: white;
+  color: var(--white);
   text-decoration: none;
   font-size: 1vmin;
 }
 
 input, select, textarea{
-  color: black;
+  color: var(--main-bg);
   padding: 1vmin 1vmin;
   border-radius: 0.5vmin;
   font-size: 1.5vmin;
@@ -221,31 +250,44 @@ input, select, textarea{
 .boardTile {
   display: flex;
   flex-direction: column;
-  background-color: rgb(39, 39, 39);
+  justify-content: flex-start;
+  align-items: stretch;
+  background-color: var(--white);
   border-radius: 1vmin;
   padding: 1.5vmin;
-  margin: 1vmin;
-  width: 28vmin;
+  margin: 2vmin;
+  width: 45%;
 }
 
 .krTile {
   display: flex;
-  flex-direction: column;
-  background-color: rgb(39, 39, 39);
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--white);
   border-radius: 1vmin;
   padding: 1.5vmin;
   margin: 1vmin;
   width: 100%;
 }
 
+.krDateTile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1vmin;
+  background-color: var(--white);
+  border-radius: 1vmin;
+  width: 20%;
+}
+
 .krDeleteTile {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
-  background-color: rgb(39, 39, 39);
+  flex-direction: column;
+  background-color: var(--white);
   border-radius: 1vmin;
-  padding: 1.5vmin;
+  padding: 1vmin;
   margin: 1vmin;
   width: 10%;
 }
@@ -261,15 +303,16 @@ input, select, textarea{
 .krRow {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   width: 100%;
 }
 
 #boardsSection {
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: stretch;
   width: 90%;
 }
 
@@ -277,12 +320,15 @@ input, select, textarea{
   margin-left: 10%;
 }
 
+
 #boardHeader2 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   justify-items: end;
   align-items: center;
+  background-color: var(--darkpink);
 }
+
 
 #boardHeaderTitle {
   grid-column: 2 / span 4;
@@ -290,6 +336,11 @@ input, select, textarea{
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+#chooseBoard {
+  grid-column: 7 / span 2;
+  justify-self: start;
 }
 
 #boardHeaderRemove {
@@ -354,18 +405,19 @@ input, select, textarea{
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: stretch;
   width: 90%;
 }
 
 .objTile {
   display: flex;
+  justify-content: flex-start;
   flex-direction: column;
-  background-color: rgb(39, 39, 39);
+  background-color: var(--white);
   border-radius: 1vmin;
   padding: 1.5vmin;
-  margin: 1vmin;
-  width: 28vmin;
+  margin: 2vmin;
+  width: 45%;
 }
 
 .objTitleInput {
@@ -386,7 +438,7 @@ input, select, textarea{
   min-height: 30vmin;
   position: absolute;
   top: 20%;
-  background-color: rgb(245, 245, 245);
+  background-color: var(--white);
   border-radius: 1vmin;
   z-index: 2;
 }
@@ -405,19 +457,27 @@ input, select, textarea{
   font-size: 2vmin;
   border-radius: 0;
   background-color: transparent;
-  color: black;
+  color: var(--main-bg);
   padding: 0.5vmin;
   margin: 0;
   align-self: flex-end;
+}
+
+.KRMODALCONT {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 #closeCreateBtn {
   font-size: 2vmin;
   border-radius: 0;
   background-color: transparent;
-  color: black;
+  color: var(--main-bg);
   padding: 0.5vmin;
   margin: 0;
+  box-shadow: none;
   align-self: flex-end;
 }
 
@@ -425,7 +485,7 @@ input, select, textarea{
   font-size: 2vmin;
   border-radius: 0;
   background-color: transparent;
-  color: black;
+  color: var(--main-bg);
   padding: 0.5vmin;
   margin: 0;
   align-self: flex-end;
@@ -435,7 +495,7 @@ input, select, textarea{
   font-size: 2vmin;
   border-radius: 0;
   background-color: transparent;
-  color: black;
+  color: var(--main-bg);
   padding: 0.5vmin;
   margin: 0;
   align-self: flex-end;
@@ -445,7 +505,7 @@ input, select, textarea{
   font-size: 2vmin;
   border-radius: 0;
   background-color: transparent;
-  color: black;
+  color: var(--main-bg);
   padding: 0.5vmin;
   margin: 0;
   align-self: flex-end;
@@ -488,13 +548,13 @@ input, select, textarea{
 }
 
 .objSubTile {
-  background-color: rgb(62, 62, 62);
+  background-color: var(--lightgrey);
   border-radius: 1vmin;
   padding: 1vmin 1vmin;
 }
 
 .krOnObj {
-  background-color: rgb(62, 62, 62);
+  background-color: var(--lightgrey);
   border-radius: 1vmin;
   padding: 1vmin 1vmin;
   margin: 1vmin 0 1vmin 0;

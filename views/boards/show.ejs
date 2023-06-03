@@ -57,8 +57,8 @@
                 <div class="objTile">
                     <div class="objSubTile">
                         <div class="objTileTitle">
-                            <h3 class="h3Light"><%= objective.objTitle %></h3>
-                            <button id="editOKRBtn" objId="<%= objective._id %>">
+                            <h3><%= objective.objTitle %></h3>
+                            <button id="editOKRBtn" class="btnemoji" objId="<%= objective._id %>">
                                 &#128221;
                             </button>
                         </div>
@@ -85,7 +85,7 @@
         <% } else { %>
             <div id="pencilDiv">
                 <img id="pencilImg" src="/images/pencil.png" alt="pencil">
-                <h1 id= "ctrHeadline" class="h1Light">You'll need to create an objective, or get added to your friend's board to get started!</h1>
+                <h1 id= "ctrHeadline">You'll need to create an objective, or get added to your friend's board to get started!</h1>
             </div>
         <% } %>
     </section>

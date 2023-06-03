@@ -1,10 +1,12 @@
-<div id="pageTitleIndent">
-    <h1 class="h1Light">Hi <%= firstName %> &#128075;</h1>
-    
-    <% if (boards.length>0) { %>
-        <h4>Choose an OKRs board</h4>
-    <% } else { %>
-        <h4>Create your first board!</h4>
-    <% } %>
+<div id="boardHeader2">
+    <div id="boardHeaderTitle">
+        <h1 id="appHi">Hi <%= firstName %> &#128075;</h1>
+    </div>
+    <div id="chooseBoard">
+        <% if (boards.length>0) { %>
+            <h4>Choose an OKRs board</h4>
+        <% } else { %>
+            <h4>Create your first board!</h4>
+        <% } %>
+    </div>
 </div>
-<hr>

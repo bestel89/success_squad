@@ -6,26 +6,27 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script defer src="/javascripts/modal.js"></script>
   <script defer src="/javascripts/krModal.js"></script>
+  <script defer src="/javascripts/moment.js"></script>
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&family=Secular+One&display=swap" rel="stylesheet">
   <title><%= title %></title>
 </head>
 <body>
     <nav>
         <div class="groupedHeader">
             <div class="headerItem">
-                <img src="/images/logo.png" class="logo">
+                <img src="/images/SSlogo.png" class="logo">
             </div>
             <form action="/boards"
                 <% if (user) { %>
                     <form action="/boards">
-                        <a href="/boards" id="h1Logo">Success Squad</a>
+                        <a href="/boards" id="h1Logo">SUCCESS SQUAD</a>
                     </form>
                 <% } else { %>
                     <form action="/">
-                        <a href="/" id="h1Logo">Success Squad</a>
+                        <a href="/" id="h1Logo">SUCCESS SQUAD</a>
                     </form>
                 <% } %>
             </div>

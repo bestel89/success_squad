@@ -7,7 +7,7 @@
         <div>
             <h3 class="h3Dark">Create key results</h3>
         </div>
-        <p class="pDark">Add a key result to your objective. Try to make it measurable.</p><br>
+        <p class="pDark">Add a key result to your objective. Try to make it measurable.</p>
         <form action="/objectives/<%= objective.id %>/krs" method="POST">
         <label class="pDark">Key result:
             <textarea class="objTitleInput" type="text" name="krTitle"></textarea>
@@ -46,10 +46,11 @@
                     <div class="krTile">
                         <p><span>Key result: <br></span> <%= kr.krTitle %></p>
                     </div>
-                    <div class="krDeleteTile">
-                        <button id="editKRBtn" objId="<%= objective._id %>" krId="<%= kr._id %>">EDIT</button>
+                    <div class="krDateTile">
+                        <p><span>Due date: <br></span> <%= moment(kr.krDueDate).format('DD/MM/YYYY') %></p>
                     </div>
                     <div class="krDeleteTile">
+                        <button id="editKRBtn" objId="<%= objective._id %>" krId="<%= kr._id %>">EDIT</button>
                         <form action="/krs/<%= kr._id %>?_method=DELETE" method="POST">
                             <input type="hidden" name="objID" value="<%= objective._id %>" />
                             <input type="hidden" name="krID" value="<%= kr._id %>" />
@@ -58,7 +59,7 @@
                     </div>
                 </div>
            <% }) %>
-            <button id="addKRBtn" objId="<%= objective._id %>">
+            <button id="addKRBtn" class="btnemoji" objId="<%= objective._id %>">
                 ADD KEY RESULT &#x2795;
             </button>
         <% } else { %>
@@ -68,7 +69,7 @@
             </div>
             <div class="boardTile">
                 <p><span>Add Key Result <br></span></p>
-                <button id="addKRBtn" objId="<%= objective._id %>">
+                <button id="addKRBtn" class="btnemoji" objId="<%= objective._id %>">
                     &#x2795;
                 </button>
             </div>

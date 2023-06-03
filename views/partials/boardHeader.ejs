@@ -1,25 +1,23 @@
 <div id="boardHeader2">
     <div id="boardHeaderTitle">
-        <h1 class="h1Light"><%= title %>  
-        </h1>
+        <h1><%= title %></h1>
         <form action="/boards/<%= board._id %>/edit" method="GET">
-            <button id="editBtn" type="submit">
+            <button id="editBtn" class="btnemoji" type="submit">
                 &#128221;
             </button>
         </form>
     </div>
     <div id="boardHeaderRemove">
         <form id="deleteBtn" action="/boards/<%= board._id %>?_method=DELETE" method="POST">
-            <button id="deleteBtn" type="submit">
+            <button id="deleteBtn" class="btnemoji" type="submit">
                 <img href="/boards" id="binImg" src="/images/delete.png" alt="recycle bin">
             </button>
         </form>
     </div>
     <div id="boardHeaderOwner">
         <div class="ownerDiv">
-            <span>Owner:</span>
-            <p><%= board.boardOwnerName %></p>
+            <span class="spanl">Owner:</span>
+            <p class="pl"><%= board.boardOwnerName %></p>
         </div>
     </div>
 </div>
-<hr>

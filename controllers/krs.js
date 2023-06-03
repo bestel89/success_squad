@@ -1,4 +1,5 @@
 const Objective = require('../models/objective')
+const moment = require('moment')
 
 module.exports = {
     edit,
@@ -44,7 +45,8 @@ async function edit(req, res) {
       title: `Key Results for: ${objective.objTitle}`,
       objective,
       krs,
-      });
+      moment: moment,
+    });
 }
 
 async function create(req, res) {
