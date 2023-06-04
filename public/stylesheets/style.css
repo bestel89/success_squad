@@ -73,6 +73,9 @@ span {
   color: var(--white);
 }
 
+label {
+  margin-top: 1vmin;
+}
 
 .logo {
   max-width: 5vmin;
@@ -141,16 +144,15 @@ section {
 
 #footerCont {
   display: flex;
-  min-width: 100%;
   background-color: var(--darkpink);
 }
 
 #footer {
   display: flex;
   justify-content: flex-start;
-  margin-left: 20%;
+  padding-left: 38%;
+  width: 150%;
   gap: 3vmin;
-  width: 100%;
   background-color: var(--darkpink);
 }
 
@@ -211,16 +213,17 @@ a {
   font-size: 1vmin;
 }
 
-input, select, textarea{
+input, select, textarea {
   color: var(--main-bg);
   padding: 1vmin 1vmin;
   border-radius: 0.5vmin;
   font-size: 1.5vmin;
+  margin-top: 2vmin;
   width: 100%;
 }
 
 #sectionForm {
-  width: 90%;
+  width: 75%;
   display: flex;
   justify-content: flex-start;
 }
@@ -255,7 +258,7 @@ input, select, textarea{
   background-color: var(--white);
   border-radius: 1vmin;
   padding: 1.5vmin;
-  margin: 2vmin;
+  margin: 2vmin 1vmin 1vmin 1vmin;
   width: 45%;
 }
 
@@ -266,7 +269,7 @@ input, select, textarea{
   background-color: var(--white);
   border-radius: 1vmin;
   padding: 1.5vmin;
-  margin: 1vmin;
+  margin: 2vmin 0 0 0;
   width: 100%;
 }
 
@@ -274,7 +277,7 @@ input, select, textarea{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1vmin;
+  margin: 2vmin 0 0 1vmin;
   background-color: var(--white);
   border-radius: 1vmin;
   width: 20%;
@@ -288,7 +291,7 @@ input, select, textarea{
   background-color: var(--white);
   border-radius: 1vmin;
   padding: 1vmin;
-  margin: 1vmin;
+  margin: 2vmin 0 0 1vmin;
   width: 10%;
 }
 
@@ -297,8 +300,14 @@ input, select, textarea{
 }
 
 .krSection {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  width: 75%;
 }
+
 
 .krRow {
   display: flex;
@@ -365,6 +374,14 @@ input, select, textarea{
   margin: 1vmin;
 }
 
+#addKRBtn {
+  margin-top: 2vmin;
+}
+
+.addKRunique {
+  margin-left: 5vmin;
+}
+
 #binImg {
   max-width: 3vmin;
   margin: 1vmin;
@@ -404,7 +421,7 @@ input, select, textarea{
 #okrsSection {
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: stretch;
   width: 90%;
 }
@@ -416,13 +433,12 @@ input, select, textarea{
   background-color: var(--white);
   border-radius: 1vmin;
   padding: 1.5vmin;
-  margin: 2vmin;
+  margin: 2vmin 1vmin 1vmin 1vmin;
   width: 45%;
 }
 
 .objTitleInput {
   margin-top: 2vmin;
-  width: 100%;
 }
 
 
@@ -430,17 +446,32 @@ input, select, textarea{
 .modal {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: flex-start;
   gap: 0.4vmin;
   width: 50vmin;
   padding: 1.5vmin;
-  min-height: 30vmin;
+  min-height: 20vmin;
   position: absolute;
   top: 20%;
   background-color: var(--white);
   border-radius: 1vmin;
   z-index: 2;
+}
+
+.modalCont {
+  width: 46vmin;
+  display: flex;
+  gap: 2vmin;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.closeBtns {
+  display: flex;
+  justify-content: flex-end;
+  width: 47vmin;
 }
 
 .hidden {
@@ -470,45 +501,72 @@ input, select, textarea{
   align-items: center;
 }
 
+#delBCancelBtn {
+  background-color: var(--lightgrey);
+  color: var(--main-bg)
+}
+
+#canDelBtns {
+  display: flex;
+  align-self: flex-end;
+  justify-content: stretch;
+  align-items: center;
+}
+
+#delBModalCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20vmin;
+}
+
+#delBModalForm {
+  display: flex;
+  align-items: center;
+}
+
 #closeCreateBtn {
-  font-size: 2vmin;
+  font-size: 3vmin;
   border-radius: 0;
   background-color: transparent;
   color: var(--main-bg);
   padding: 0.5vmin;
   margin: 0;
   box-shadow: none;
-  align-self: flex-end;
+  justify-self: flex-end;
 }
 
 #closeCreateKRBtn {
-  font-size: 2vmin;
+  font-size: 3vmin;
   border-radius: 0;
   background-color: transparent;
   color: var(--main-bg);
   padding: 0.5vmin;
   margin: 0;
   align-self: flex-end;
+  box-shadow: none;
 }
 
 #closeEditBtn {
-  font-size: 2vmin;
+  font-size: 3vmin;
   border-radius: 0;
   background-color: transparent;
   color: var(--main-bg);
   padding: 0.5vmin;
   margin: 0;
   align-self: flex-end;
+  box-shadow: none;
 }
 
 #closeEditKRBtn {
-  font-size: 2vmin;
+  font-size: 3vmin;
   border-radius: 0;
   background-color: transparent;
   color: var(--main-bg);
   padding: 0.5vmin;
   margin: 0;
   align-self: flex-end;
+  box-shadow: none;
 }
 
 .overlay {

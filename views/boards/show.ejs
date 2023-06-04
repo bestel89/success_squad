@@ -3,23 +3,37 @@
 <%- include('../partials/boardHeader') %>
 <main>
     <section class="createObjModal modal hidden">
-        <button id="closeCreateBtn">⨉</button>
-        <div>
-            <h3 class="h3Dark">Create Objective</h3>
+        <div class="closeBtns">
+            <button id="closeCreateBtn">⨉</button>
         </div>
-        <p class="pDark">Create your objective, you can add key results later.</p><br>
         <form action="<%= board.id %>/objectives" method="POST">
-        <label class="pDark">Objective title:
-            <textarea class="objTitleInput" type="text" name="objTitle"></textarea>
-        </label>
-        <label class="pDark">Objective description:
-            <textarea class="objTitleInput" type="text" name="objDesc"></textarea>
-        </label>
-        <label class="pDark">Objective due date: <br>
-            <input type="date" name="objOrigDue"></textarea>
-        </label>
-        <input type="hidden" name="objBoardID" value="<%= board._id %>" />
-        <button class="btn submit">SUBMIT</button>
+            <div class="modalCont">
+                <div>
+                    <h3 class="h3Dark">Create Objective</h3>
+                </div>
+                <div>
+                    <p class="pDark">Create your objective, you can add key results later.</p>
+                </div>
+                <div>
+                    <label class="pDark">Objective title:
+                        <textarea class="objTitleInput" type="text" name="objTitle"></textarea>
+                    </label>
+                </div>
+                <div>
+                    <label class="pDark">Objective description:
+                        <textarea class="objTitleInput" type="text" name="objDesc"></textarea>
+                    </label>
+                </div>
+                <div>
+                    <label class="pDark">Objective due date: <br>
+                        <input type="date" name="objOrigDue"></textarea>
+                    </label>
+                </div>
+                <div class="closeBtns">
+                    <button class="btn submit" type="submit">SUBMIT</button>
+                </div>
+            </div>
+            <input type="hidden" name="objBoardID" value="<%= board._id %>" />
       </form>
     </section>
 
@@ -47,6 +61,28 @@
             <input type="hidden" name="objBoardID" value="<%= board._id %>" />
             <button class="btn submit">UPDATE OBJECTIVE</button>
         </form>
+    </section>
+
+    <section class="delBModal modal hidden">
+        <div id="delBModalCont">
+            <div>
+                <h3 class="h3Dark">Are you sure?</h3>
+            </div>
+            <div>
+                <p>There may be dire dire consequences if you delete this board.</p>
+            </div>
+            <div id="canDelBtns">
+                <div>
+                    <button id="delBCancelBtn" class="btn submit">CANCEL</button>
+                </div>
+                <div>
+                    <form id="delBModalForm" action="/boards/<%= board._id %>?_method=DELETE" method="POST">
+                        <button class="btn submit">DELETE BOARD</button>
+                        <input type="hidden" name="objBoardID" value="<%= board._id %>" />
+                    </form>
+                </div>
+                </div>
+            </div>
     </section>
 
     <div class="overlay hidden"></div>

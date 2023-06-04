@@ -1,13 +1,18 @@
 //!CACHING DOM ELEMENTS
 const createObjModalEl = document.querySelector(".createObjModal")
 const editObjModalEl = document.querySelector(".editObjModal")
-const overlay = document.querySelector(".overlay")
+const delBModalEl = document.querySelector(".delBModal")
+
 const closeCreateEl = document.getElementById("closeCreateBtn")
 const closeEditEl = document.getElementById("closeEditBtn")
+const delBCancelBtnEl = document.getElementById("delBCancelBtn")
+
+const overlay = document.querySelector(".overlay")
 
 //Bespoke buttons
 const createOKRBtn = document.getElementById('createOKRBtn')
 const editOKRBtns = document.querySelectorAll('button[id^=editOKRBtn]')
+const delBModalOpenBtnEl = document.getElementById("deleteBtn")
 
 //Forms
 const editObjFormEl = document.getElementById('editObjForm')
@@ -21,11 +26,6 @@ function openObjCreateModal() {
     overlay.classList.remove("hidden") 
 }
 
-// function closeObjCreateModal() {
-//     createObjModalEl.classList.add("hidden")
-//     overlay.classList.add("hidden")
-// }
-
 async function openObjEditModal(evtTarget) {
     console.log(evtTarget)
     editObjModalEl.classList.remove("hidden")
@@ -34,14 +34,16 @@ async function openObjEditModal(evtTarget) {
     await editObjFormEl.setAttribute("action", `/objectives/${objIDToEdit}?_method=UPDATE`)
 }
 
-// function closeObjEditModal() {
-//     editObjModalEl.classList.add("hidden")
-//     overlay.classList.add("hidden")
-// }
+function openDelModal() {
+    console.log('del b modal firing')
+    delBModalEl.classList.remove("hidden")
+    overlay.classList.remove("hidden") 
+}
 
 function closeModal() {
     createObjModalEl.classList.add("hidden")
     editObjModalEl.classList.add("hidden")
+    delBModalEl.classList.add("hidden")
     overlay.classList.add("hidden")
 }
 
@@ -52,12 +54,14 @@ editOKRBtns.forEach(function(btn) {
          openObjEditModal(event.target)
     })
 })
+createOKRBtn.addEventListener("click", openObjCreateModal)
+delBModalOpenBtnEl.addEventListener("click", openDelModal)
 
-createOKRBtn.addEventListener("click", openObjCreateModal);
-// editOKRBtn.addEventListener("click", openObjEditModal);
-closeCreateEl.addEventListener("click", closeModal);
-closeEditEl.addEventListener("click", closeModal);
-overlay.addEventListener("click", closeModal);
+closeCreateEl.addEventListener("click", closeModal)
+closeEditEl.addEventListener("click", closeModal)
+delBCancelBtnEl.addEventListener("click", closeModal)
+
+overlay.addEventListener("click", closeModal)
 
 
 console.log(objIDToEdit)

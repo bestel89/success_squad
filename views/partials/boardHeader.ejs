@@ -8,11 +8,9 @@
         </form>
     </div>
     <div id="boardHeaderRemove">
-        <form id="deleteBtn" action="/boards/<%= board._id %>?_method=DELETE" method="POST">
-            <button id="deleteBtn" class="btnemoji" type="submit">
-                <img href="/boards" id="binImg" src="/images/delete.png" alt="recycle bin">
-            </button>
-        </form>
+        <button class="btnemoji">
+            <img id="deleteBtn" id="binImg" src="/images/delete.png" alt="recycle bin">
+        </button>
     </div>
     <div id="boardHeaderOwner">
         <div class="ownerDiv">

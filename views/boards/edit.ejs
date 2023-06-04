@@ -5,14 +5,14 @@
     <section id="sectionForm">
         <div id="formCont" class="flexctr">
             <form id="newBoardForm" action="/boards/<%= board.id %>?_method=UPDATE" method="POST">
-              <label>Board name:<br>
+              <label class="pl">Board name:<br>
                 <input class='textinput' type="text" name="boardName" placeholder="<%= board.boardName %>">
               </label><br>
-              <label>Description:<br>
+              <label class="pl">Description:<br>
                 <textarea class='textinput' type="text" name="boardDesc" placeholder="<%= board.boardDesc %>"></textarea>
               </label><br>
-              <label>Owner:<br>
-                <p>	&#x2139; This field cannot be edited</p>
+              <label class="pl">Owner:<br>
+                <p class="pl">	&#x2139; This field cannot be edited</p>
                 <input class='textinput' type="text" name="boardOwner" placeholder="<%= board.boardOwnerName %>" readonly>
               </label><br><br>
               <button class="flexctr" type="submit">UPDATE DETAILS</button>
