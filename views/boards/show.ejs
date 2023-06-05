@@ -38,28 +38,34 @@
     </section>
 
     <section class="editObjModal modal hidden">
-        <button id="closeEditBtn">⨉</button>
+        <div class="closeBtns">
+            <button id="closeEditBtn">⨉</button>
+        </div>
         <form id="editObjForm" method="POST">
-            <div>
-                <h3 class="h3Dark">Edit Objective</h3>
+            <div class="modalCont">
+                <div>
+                    <h3 class="h3Dark">Edit Objective</h3>
+                </div>
+                <div>
+                    <label class="pDark">New title:
+                        <textarea class="objTitleInput" type="text" name="objTitle"></textarea>
+                    </label>
+                </div>
+                <div>
+                    <label class="pDark">New description:
+                        <textarea class="objTitleInput" type="text" name="objDesc"></textarea>
+                    </label>
+                </div>
+                <div>
+                    <label class="pDark">New due date: <br>
+                        <input type="date" name="objCalcDue"></textarea>
+                    </label>
+                </div>
+                <input type="hidden" name="objBoardID" value="<%= board._id %>" />
+                <div class="closeBtns">
+                    <button class="btn submit">UPDATE OBJECTIVE</button>
+                </div>
             </div>
-            <div>
-                <label class="pDark">New title:
-                    <textarea class="objTitleInput" type="text" name="objTitle"></textarea>
-                </label>
-            </div>
-            <div>
-                <label class="pDark">New description:
-                    <textarea class="objTitleInput" type="text" name="objDesc"></textarea>
-                </label>
-            </div>
-            <div>
-                <label class="pDark">New due date: <br>
-                    <input type="date" name="objCalcDue"></textarea>
-                </label>
-            </div>
-            <input type="hidden" name="objBoardID" value="<%= board._id %>" />
-            <button class="btn submit">UPDATE OBJECTIVE</button>
         </form>
     </section>
 
@@ -73,12 +79,33 @@
             </div>
             <div id="canDelBtns">
                 <div>
-                    <button id="delBCancelBtn" class="btn submit">CANCEL</button>
+                    <button id="delObjCancelBtn" class="btn submit">CANCEL</button>
                 </div>
                 <div>
                     <form id="delBModalForm" action="/boards/<%= board._id %>?_method=DELETE" method="POST">
                         <button class="btn submit">DELETE BOARD</button>
                         <input type="hidden" name="objBoardID" value="<%= board._id %>" />
+                    </form>
+                </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="delObjModal modal hidden">
+        <div id="delObjModalCont">
+            <div>
+                <h3 class="h3Dark">Are you sure?</h3>
+            </div>
+            <div>
+                <p>There may be dire dire consequences if you delete this objective. Your boss might be upset with you.</p>
+            </div>
+            <div id="canDelBtns">
+                <div>
+                    <button id="delObjCancelBtn2" class="btn submit">CANCEL</button>
+                </div>
+                <div>
+                    <form id="delObjModalForm" method="POST">
+                        <button class="btn submit">DELETE OBJECTIVE</button>
                     </form>
                 </div>
                 </div>
@@ -93,29 +120,50 @@
                 <div class="objTile">
                     <div class="objSubTile">
                         <div class="objTileTitle">
-                            <h3><%= objective.objTitle %></h3>
+                            <p class="krlabel"><%= objective.objTitle %></p>
+                        </div>
+                        <div>
+                            <p><span>Description: <br></span> <%= objective.objDesc %></p>
+                        </div>
+                        <div>
+                            <p><span>Original due date: <br></span> <%= objective.objOrigDue.toLocaleDateString('en-uk') %></p>
+                        </div>
+                            <% if (objective.objCalcDue) { %>
+                                <div>
+                                    <p><span>Updated due date: <br></span> <%= objective.objCalcDue.toLocaleDateString('en-uk') %></p>
+                                </div>
+                            <% } else {} %>
+                        <div class="editDelBtns">
                             <button id="editOKRBtn" class="btnemoji" objId="<%= objective._id %>">
                                 &#128221;
                             </button>
+                            <button id="delObjBtn" class="btnemoji">
+                                <img id="deleteBtn" id="binImg" src="/images/delete.png" alt="recycle bin" objId="<%= objective._id %>">
+                            </button>
                         </div>
-                            <p><span>Description: <br></span> <%= objective.objDesc %></p>
-                            <p><span>Original due date: <br></span> <%= objective.objOrigDue.toLocaleDateString('en-uk') %></p>
-                            <% if (objective.objCalcDue) { %>
-                                <p><span>Updated due date: <br></span> <%= objective.objCalcDue.toLocaleDateString('en-uk') %></p>
-                            <% } else {} %>
                     </div>
                     <% const krArr = objective.objKeyResults %>
                     <div class="objTileTitle">
-                        <p>Key results </p>
-                        <form action="/objectives/<%= objective._id %>/krs/edit" method="GET">
-                            <button>EDIT</button>
-                        </form>
-                    </div>
-                    <% krArr.forEach(function(kr) { %>
-                        <div class="krOnObj">
-                            <p><%= kr.krTitle %></p>
+                        <div>
+                            <p class="krlabel">KEY RESULTS</p>    
                         </div>
-                    <% }) %>
+                        <div>
+                            <form action="/objectives/<%= objective._id %>/krs/edit" method="GET">
+                                <button>EDIT</button>
+                            </form>
+                        </div>
+                    </div>
+                    <% if (krArr.length > 0) { %>
+                        <% krArr.forEach(function(kr) { %>
+                            <div class="krOnObj">
+                                <p><%= kr.krTitle %></p>
+                            </div>
+                        <% }) %>
+                    <% } else { %>
+                        <div class="krOnObjNone">
+                            <p>None added</p>
+                        </div>
+                    <% } %>
                 </div>
            <% }) %>
         <% } else { %>

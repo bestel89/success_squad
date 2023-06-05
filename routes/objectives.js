@@ -27,7 +27,7 @@ router.post('/objectives/:id/krs', ensureLoggedIn, krsCtrl.create)
 // POST boards
 router.post('/objectives/:id', ensureLoggedIn, objectivesCtrl.update)
 
-// // POST boards
-// router.delete('/:id', ensureLoggedIn, boardsCtrl.delete)
+// POST boards
+router.delete('/objectives/:id', ensureLoggedIn, objectivesCtrl.delete)
 
 module.exports = router

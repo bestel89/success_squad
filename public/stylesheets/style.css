@@ -185,6 +185,7 @@ button:hover {
 
 .btnemoji {
   box-shadow: none;
+  background-color: transparent;
 }
 
 .greyBtn {
@@ -411,10 +412,10 @@ input, select, textarea {
 
 #editOKRBtn {
   background-color: transparent;
-  height: 4vmin;
-  width: 4vmin;
+  height: 3vmin;
+  width: 3vmin;
   padding: 0;
-  margin: 1vmin;
+  margin: 0.5vmin;
   font-size: 3vmin;
 }
 
@@ -601,19 +602,40 @@ input, select, textarea {
 
 .objTileTitle {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 1vmin;
+  margin: 1vmin 0 1vmin 0.5vmin;
+}
+
+.krlabel{
+  font-weight: 700;
 }
 
 .objSubTile {
+  display: flex;
+  flex-direction: column;
+  gap: 1vmin;
   background-color: var(--lightgrey);
   border-radius: 1vmin;
   padding: 1vmin 1vmin;
+}
+
+.editDelBtns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .krOnObj {
   background-color: var(--lightgrey);
   border-radius: 1vmin;
   padding: 1vmin 1vmin;
-  margin: 1vmin 0 1vmin 0;
+  margin: 1vmin 0 0 0;
+}
+
+.krOnObjNone {
+  background-color: var(--lightur);
+  border-radius: 1vmin;
+  padding: 1vmin 1vmin;
+  margin: 1vmin 0 0 0;
 }

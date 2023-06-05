@@ -4,8 +4,17 @@ const Objective = require('../models/objective')
 module.exports = {
     create,
     update,
+    delete: deleteObj,
 }
 
+async function deleteObj(req, res) {
+    const id = req.params.id
+    const objective = await Objective.findById(id)
+    relatedBoardID = objective.objBoardID
+    console.log(relatedBoardID)
+    await Objective.deleteOne(objective)
+    await res.redirect(`/boards/${relatedBoardID}`)
+}
 
 async function update(req, res, next) {
     const { id } = req.params
