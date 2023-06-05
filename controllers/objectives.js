@@ -1,5 +1,6 @@
 const Board = require('../models/board')
 const Objective = require('../models/objective')
+const moment = require('moment')
 
 module.exports = {
     create,
@@ -11,7 +12,6 @@ async function deleteObj(req, res) {
     const id = req.params.id
     const objective = await Objective.findById(id)
     relatedBoardID = objective.objBoardID
-    console.log(relatedBoardID)
     await Objective.deleteOne(objective)
     await res.redirect(`/boards/${relatedBoardID}`)
 }
@@ -40,7 +40,6 @@ async function create(req, res) {
         if (req.body[key] === '') delete req.body[key];
     }
     try {
-        console.log(req.body)
         req.body.objAuthorName = req.user.name
         const objective = await Objective.create(req.body);
         const id = req.body.objBoardID

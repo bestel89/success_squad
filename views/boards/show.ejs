@@ -126,11 +126,11 @@
                             <p><span>Description: <br></span> <%= objective.objDesc %></p>
                         </div>
                         <div>
-                            <p><span>Original due date: <br></span> <%= objective.objOrigDue.toLocaleDateString('en-uk') %></p>
+                            <p><span>Original due date: <br></span> <%= moment(objective.objOrigDue).format('DD/MM/YYYY') %></p>
                         </div>
                             <% if (objective.objCalcDue) { %>
                                 <div>
-                                    <p><span>Updated due date: <br></span> <%= objective.objCalcDue.toLocaleDateString('en-uk') %></p>
+                                    <p><span>Updated due date: <br></span> <%= moment(objective.objCalcDue).format('DD/MM/YYYY') %></p>
                                 </div>
                             <% } else {} %>
                         <div class="editDelBtns">

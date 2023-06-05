@@ -48,6 +48,7 @@ editKRBtns.forEach(function(btn) {
     })
 })
 
-addKRBtn.addEventListener("click", openKRCreateModal);
-krOverlay.addEventListener("click", closeModal);
+addKRBtn.addEventListener("click", openKRCreateModal)
+krOverlay.addEventListener("click", closeModal)
 closeEditKREl.addEventListener("click", closeModal)
+closeCreateKREl.addEventListener("click", closeModal)

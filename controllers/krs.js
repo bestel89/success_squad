@@ -40,7 +40,6 @@ async function deleteKR(req, res) {
 async function edit(req, res) {
     const objective = await Objective.findById(req.params.id)
     const krs = await objective.objKeyResults
-    console.log(krs)
     await res.render('boards/editKRs', { 
       title: `Key Results for: ${objective.objTitle}`,
       objective,
@@ -59,7 +58,6 @@ async function create(req, res) {
         const krToAdd = req.body
         objective.objKeyResults.push(krToAdd)
         objective.save()
-        console.log(objective._id)
         res.redirect(`/objectives/${objective._id}/krs/edit`);
     } catch (err) {
     //   Typically some sort of validation error

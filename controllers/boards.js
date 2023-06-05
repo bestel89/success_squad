@@ -1,5 +1,6 @@
 const Board = require('../models/board')
 const Objective = require('../models/objective')
+const moment = require('moment')
 
 module.exports = {
     index,
@@ -59,6 +60,7 @@ async function show(req, res) {
     title: board.boardName, 
     board,
     objectives,
+    moment: moment,
  });
 }
 
@@ -86,6 +88,6 @@ async function create(req, res) {
 }
 
 async function deleteBoard(req, res) {
-    await Board.findOneAndRemove(req.params.id)
+    await Board.findByIdAndDelete(req.params.id)
     await res.redirect('/boards')
 }

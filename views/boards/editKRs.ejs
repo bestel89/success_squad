@@ -4,19 +4,29 @@
 <main>
     <section class="createKRModal modal hidden">
         <button id="closeCreateKRBtn">⨉</button>
-        <div>
-            <h3 class="h3Dark">Create key results</h3>
-        </div>
-        <p class="pDark">Add a key result to your objective. Try to make it measurable.</p>
         <form action="/objectives/<%= objective.id %>/krs" method="POST">
-        <label class="pDark">Key result:
-            <textarea class="objTitleInput" type="text" name="krTitle"></textarea>
-        </label>
-        <label class="pDark">KR due date: <br>
-            <input type="date" name="krDueDate"></textarea>
-        </label>
-        <button class="btn submit">SUBMIT</button>
-      </form>
+            <div class="createKRModalCont">
+                <div>
+                    <h3 class="h3Dark">Create key results</h3>
+                </div>
+                <div>
+                    <p class="pDark">Add a key result to your objective. Try to make it measurable.</p>
+                </div>
+                <div>
+                    <label class="pDark">Key result:
+                        <textarea class="objTitleInput" type="text" name="krTitle"></textarea>
+                    </label>
+                </div>
+                <div>
+                    <label class="pDark">KR due date: <br>
+                        <input type="date" name="krDueDate"></textarea>
+                    </label>
+                </div>
+                <div class="closeBtns">
+                    <button class="submit">SUBMIT</button>
+                </div>
+            </div>
+        </form>
     </section>
 
     <section class="editKRModal modal hidden">

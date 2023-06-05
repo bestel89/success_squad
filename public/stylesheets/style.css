@@ -193,6 +193,10 @@ button:hover {
   color: var(--main-bg)
 }
 
+.submit {
+  align-self: flex-start;
+}
+
 .rightCollection {
   display: flex;
   justify-content: right;
@@ -377,6 +381,7 @@ input, select, textarea {
 
 #addKRBtn {
   margin-top: 2vmin;
+  background-color: var(--darkpink);
 }
 
 .addKRunique {
@@ -469,6 +474,16 @@ input, select, textarea {
   align-items: stretch;
 }
 
+.createKRModalCont {
+  width: 46vmin;
+  display: flex;
+  gap: 2vmin;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+} 
+
+
 .closeBtns {
   display: flex;
   justify-content: flex-end;
@@ -515,6 +530,13 @@ input, select, textarea {
 }
 
 #delBModalCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20vmin;
+}
+
+#delObjModalCont {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

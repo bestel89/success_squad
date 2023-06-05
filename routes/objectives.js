@@ -6,15 +6,6 @@ const ensureLoggedIn = require('../config/ensureLoggedIn')
 
 // ALL ROUTES STARTS WITH /boards/:id
 
-// // GET All objectives for a board
-// router.get('/objectives', ensureLoggedIn, objectivesCtrl.index)
-
-// // GET boards/new
-// router.get('/new', ensureLoggedIn, objectivesCtrl.new)
-
-// // GET boards/show
-// router.get('/:id', ensureLoggedIn, boardsCtrl.show)
-
 // GET /objectives/:id/krs/new	
 router.get('/objectives/:id/krs/edit', ensureLoggedIn, krsCtrl.edit)
 
