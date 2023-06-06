@@ -60,8 +60,6 @@ async function create(req, res) {
         objective.save()
         res.redirect(`/objectives/${objective._id}/krs/edit`);
     } catch (err) {
-    //   Typically some sort of validation error
-      console.log(err);
-    //   res.render(`/boards/${objective._id}`, { errorMsg: err.message });
+        console.log(err);
     }
 }

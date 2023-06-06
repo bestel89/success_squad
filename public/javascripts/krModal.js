@@ -19,7 +19,6 @@ const editKRFormEl = document.getElementById('editKRForm')
 
 // //! SUPPORTING FUNCTIONS
 function openKRCreateModal() {
-    console.log('boom')
     createKRModalEl.classList.remove("hidden")
     krOverlay.classList.remove("hidden") 
 }
@@ -34,7 +33,6 @@ async function openKREditModal(evtTarget) {
 }
 
 function closeModal() {
-    console.log('firing')
     createKRModalEl.classList.add("hidden")
     editKRModalEl.classList.add("hidden")
     krOverlay.classList.add("hidden")

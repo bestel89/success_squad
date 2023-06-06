@@ -6,16 +6,16 @@ const krSchema = new Schema({
         type: String,
         required: true,
     },
-    krStatus: {
+    krStatus: { //NOT IN USE UNTIL FURTHER FUNCTIONALITY IMPLEMENTED
         type: String,
     },
-    krProgress: {
+    krProgress: { //NOT IN USE UNTIL FURTHER FUNCTIONALITY IMPLEMENTED
         type: String,
     },
     krDueDate: {
         type: Date,
     },
-    krAuthor: {
+    krAuthor: { //NOT IN USE UNTIL FURTHER FUNCTIONALITY IMPLEMENTED
         type: Schema.Types.ObjectId,
         ref: 'krAuthor'
     },
@@ -37,13 +37,13 @@ const objSchema = new Schema({
   objOrigDue: {
     type: Date,
   },
-  objCalcDue: {
+  objCalcDue: { 
     type: Date,
   },
-  objCalcStatus: {
+  objCalcStatus: { //NOT IN USE UNTIL FURTHER FUNCTIONALITY IMPLEMENTED
     type: String,
   },
-  objCalcProgress: {
+  objCalcProgress: { //NOT IN USE UNTIL FURTHER FUNCTIONALITY IMPLEMENTED
     type: String,
   },
   objAuthorID: {
@@ -56,7 +56,7 @@ const objSchema = new Schema({
   objKeyResults: {
     type: [krSchema]
   },
-  objComments: {
+  objComments: { //NOT IN USE UNTIL FURTHER FUNCTIONALITY IMPLEMENTED
     type: Schema.Types.ObjectId,
     ref: 'ObjComment',
   },

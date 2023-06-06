@@ -11,22 +11,18 @@ const boardSchema = new Schema({
   },
   boardObjs: [{
     type: Schema.Types.ObjectId,
-    ref: 'Viewer'
   }],
   boardOwnerID: {
     type: Schema.Types.ObjectId,
-    ref: 'Owner',
   },
   boardOwnerName: {
     type: String,
   },
-  boardEditors: [{
+  boardEditors: [{ //NOT IN USE UNTIL FURTHER FUNCTIONALITY IMPLEMENTED
     type: Schema.Types.ObjectId,
-    ref: 'Editor'
   }],
-  boardViewers: [{
+  boardViewers: [{ //NOT IN USE UNTIL FURTHER FUNCTIONALITY IMPLEMENTED
     type: Schema.Types.ObjectId,
-    ref: 'Viewer'
   }],
 }, {
   timestamps: true
